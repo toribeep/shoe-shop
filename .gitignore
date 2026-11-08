@@ -1,0 +1,36 @@
+# Файлы Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Кэш тестирования
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Виртуальное окружение
+venv/
+.venv/
+env/
+
+# Секретные настройки
+config.py
+config.ini
+.env
+.env.*
+
+# Файлы журналов
+*.log
+
+# Файлы IDE
+.idea/
+.vscode/
+
+# Результаты сборки
+build/
+dist/
+.dist/
+
+# Системные файлы Windows
+Thumbs.db
+Desktop.ini

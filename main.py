@@ -46,7 +46,7 @@ class ShoeStoreApp:
             from products_window import ProductsWindow
             ProductsWindow(self.root, self)
         except Exception as e:
-            messagebox.showerror("Ошибка", f"Не удалось открыть список товаров: {e}")
+            messagebox.showerror("Ошибка", f"Не удалось загрузить список товаров. Попробуйте снова: {e}")
             self.show_auth_window()
     
     def logout(self):

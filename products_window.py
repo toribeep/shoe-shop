@@ -558,8 +558,13 @@ class ProductsWindow:
             unit_label.bind("<Leave>", self.on_card_leave)
         
         # количество на складе
-        quantity_color = 'red' if product.quantity == 0 else 'black'
-        quantity_text = f"НЕТ В НАЛИЧИИ" if product.quantity == 0 else f"{product.quantity}"
+	quantity_color = 'red' if product.quantity == 0 else 'black'
+
+	quantity_text = (
+    	"Много в наличии"
+    	if product.quantity > 5
+    	else "Мало в наличии"
+	)
         
         quantity_label = tk.Label(
             details_frame,

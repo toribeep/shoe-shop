@@ -13,7 +13,12 @@ class Database:
             self.connection = psycopg2.connect(**DB_CONFIG)
             print("Connected to database successfully")
         except Exception as e:
-            print(f"Error connecting to database: {e}")
+            print(
+                f"Ошибка подключения к базе данных: {e}\n"
+                "Проверьте настройки подключения в файле config.ini "
+                "и убедитесь, что сервер PostgreSQL запущен."
+        )
+        self.connection = None
     
     def execute_query(self, query, params=None, commit=True):
         try:

@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
 import os
-
+MANY_THRESHOLD = 5
 class ProductsWindow:
     def __init__(self, root, app):
         self.root = root
@@ -558,17 +558,22 @@ class ProductsWindow:
             unit_label.bind("<Leave>", self.on_card_leave)
         
         # количество на складе
-        quantity_color = 'red' if product.quantity == 0 else 'black'
-        quantity_text = f"НЕТ В НАЛИЧИИ" if product.quantity == 0 else f"{product.quantity}"
-        
-        quantity_label = tk.Label(
-            details_frame,
-            text=f"Количество на складе: {quantity_text}",
-            font=("Times New Roman", 10, "bold" if product.quantity == 0 else "normal"),
-            bg=bg_color,
-            fg=quantity_color,
-            anchor='w'
-        )
+            quantity_color = 'red' if product.quantity == 0 else 'black'
+
+            quantity_text = (
+                "Много в наличии"
+                if product.quantity > MANY_THRESHOLD
+                else "Мало в наличии"
+            )
+
+            quantity_label = tk.Label(
+                details_frame,
+                text=f"Количество на складе: {quantity_text}",
+                font=("Times New Roman", 10, "bold" if product.quantity == 0 else "normal"),
+                bg=bg_color,
+                fg=quantity_color,
+                anchor='w'
+            )
         quantity_label.pack(anchor='w', pady=2)
         
         if self.current_user.role == "Администратор":

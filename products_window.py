@@ -557,23 +557,23 @@ class ProductsWindow:
             unit_label.bind("<Enter>", self.on_card_enter)
             unit_label.bind("<Leave>", self.on_card_leave)
         
-        # количество на складе
-            quantity_color = 'red' if product.quantity == 0 else 'black'
+                # количество на складе
+        quantity_color = 'red' if product.quantity == 0 else 'black'
 
-            quantity_text = (
-                "Много в наличии"
-                if product.quantity > MANY_THRESHOLD
-                else "Мало в наличии"
-            )
+        quantity_text = (
+            "Много в наличии"
+            if product.quantity > MANY_THRESHOLD
+            else "Мало в наличии"
+        )
 
-            quantity_label = tk.Label(
-                details_frame,
-                text=f"Количество на складе: {quantity_text}",
-                font=("Times New Roman", 10, "bold" if product.quantity == 0 else "normal"),
-                bg=bg_color,
-                fg=quantity_color,
-                anchor='w'
-            )
+        quantity_label = tk.Label(
+            details_frame,
+            text=f"Количество на складе: {quantity_text}",
+            font=("Times New Roman", 10, "bold" if product.quantity == 0 else "normal"),
+            bg=bg_color,
+            fg=quantity_color,
+            anchor='w'
+        )
         quantity_label.pack(anchor='w', pady=2)
         
         if self.current_user.role == "Администратор":

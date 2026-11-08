@@ -14,9 +14,10 @@ class Database:
             print("Connected to database successfully")
         except Exception as e:
             print(
-                f"Ошибка подключения к базе данных: {e}\n"
+                "Не удалось подключиться к базе данных.\n"
                 "Проверьте настройки подключения в файле config.ini "
-                "и убедитесь, что сервер PostgreSQL запущен."
+                "и убедитесь, что сервер PostgreSQL запущен.\n"
+                f"Подробности ошибки: {e}"
         )
         self.connection = None
     

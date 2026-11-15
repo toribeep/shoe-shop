@@ -19,7 +19,7 @@ class Database:
                 "и убедитесь, что сервер PostgreSQL запущен.\n"
                 f"Подробности ошибки: {e}"
         )
-        self.connection = None
+        # self.connection = None
     
     def execute_query(self, query, params=None, commit=True):
         try:

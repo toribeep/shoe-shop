@@ -1,0 +1,10 @@
+# .dockerignore в корне проекта
+.git
+.venv
+venv
+__pycache__
+*.pyc
+config.ini
+.env
+build
+dist

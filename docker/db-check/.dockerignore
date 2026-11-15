@@ -1,0 +1,5 @@
+# docker/db-check/.dockerignore
+__pycache__
+*.pyc
+.env
+.venv

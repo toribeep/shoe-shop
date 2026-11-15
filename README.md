@@ -74,3 +74,15 @@ ER-диаграмма базы данных проекта представле�
 Таблица `order_items` связана с `products` по артикулу товара. Это позволяет указать товары и их количество в заказе.
 
 Таблица `orders` связана с `pickup_points` по адресу пункта выдачи.
+
+## Запуск PostgreSQL через Docker Compose
+
+1. Установите Docker Desktop и WSL 2.
+2. Создайте файл `.env` на основе `.env.example` и задайте свой пароль.
+3. Запустите контейнеры: `docker compose up --build -d`
+4. Импортируйте структуру БД:
+   `docker compose cp create_tables.sql db:/tmp/create_tables.sql`
+   `docker compose exec db psql -U shoe_user -d shoe_store -f /tmp/create_tables.sql`
+5. Заполните данными: `python insert_data.py`
+6. Приложение подключается по адресу `localhost:5433` (настройки в `config.py`).
+7. Остановка: `docker compose stop`.

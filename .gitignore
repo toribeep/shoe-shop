@@ -14,7 +14,8 @@ venv/
 env/
 
 # Секретные настройки
-config.py
+# config.py содержит код чтения настроек, секреты хранятся в config.ini
+!config.py
 config.ini
 .env
 .env.*
@@ -37,3 +38,8 @@ Thumbs.db
 Desktop.ini~
 
 backups/
+
+~$*.xlsx
+
+# Готовый комплект поставки
+ShoeStore-release/

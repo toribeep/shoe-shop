@@ -3,6 +3,8 @@ import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
 import os
+from app_paths import resource_path
+
 MANY_THRESHOLD = 5
 class ProductsWindow:
     def __init__(self, root, app):
@@ -49,8 +51,8 @@ class ProductsWindow:
         left_frame.pack(side='left', padx=10)
         
         try:
-            logo_path = "resources/Icon.png"
-            if os.path.exists(logo_path):
+            logo_path = resource_path("resources/Icon.png")
+            if logo_path.exists():
                 logo_img = Image.open(logo_path)
                 logo_img = logo_img.resize((40, 40), Image.Resampling.LANCZOS)
                 logo_photo = ImageTk.PhotoImage(logo_img)
@@ -325,10 +327,10 @@ class ProductsWindow:
         
         try:
             img_path = None
-            if product.photo and os.path.exists(f"resources/{product.photo}"):
-                img_path = f"resources/{product.photo}"
-            elif os.path.exists("resources/picture.png"):
-                img_path = "resources/picture.png"
+            if product.photo and resource_path(f"resources/{product.photo}").exists():
+                img_path = resource_path(f"resources/{product.photo}")
+            elif resource_path("resources/picture.png").exists():
+                img_path = resource_path("resources/picture.png")
             
             if img_path:
                 img = Image.open(img_path)

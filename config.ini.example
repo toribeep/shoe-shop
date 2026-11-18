@@ -1,7 +1,6 @@
-
 [postgresql]
-host = localhost
-database = shoestore_db
-user = postgres
+host = 127.0.0.1
+database = shoe_store
+user = shoe_user
 password = YOUR_PASSWORD
-port = 5432
+port = 5433
